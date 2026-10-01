@@ -1,0 +1,96 @@
+# ==============================
+# Build output
+# ==============================
+
+build/
+_build/
+out/
+bin/
+lib/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+install_manifest.txt
+Makefile
+compile_commands.json
+CTestTestfile.cmake
+
+# ==============================
+# C / C++ build artifacts
+# ==============================
+
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Debug / profiling
+*.dSYM/
+*.gcda
+*.gcno
+*.gcov
+*.prof
+*.profraw
+
+# ==============================
+# Rust
+# ==============================
+
+target/
+Cargo.lock
+
+# ==============================
+# IDEs / Editors
+# ==============================
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ==============================
+# Generated files
+# ==============================
+
+*.generated.*
+*.tmp
+*.temp
+
+# ==============================
+# Coverage
+# ==============================
+
+coverage/
+.coverage
+htmlcov/
+
+# ==============================
+# Benchmark output
+# ==============================
+
+benchmark-results/
+benchmarks/results/
+
+# ==============================
+# OS / filesystem junk
+# ==============================
+
+Thumbs.db
+Desktop.ini
+
+# ==============================
+# Environment / local config
+# ==============================
+
+.env
+.env.*
+!.env.example
