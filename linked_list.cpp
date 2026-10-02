@@ -23,6 +23,10 @@ class SLL {
         tail = newNode;
     }
 
+    ~SLL() {
+        clear();
+    }
+
     void insertStart(int data) {
         Node *newNode = new Node(data);
         newNode->next = head;
