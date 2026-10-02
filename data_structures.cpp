@@ -143,3 +143,16 @@ class Queue {
         return list.isEmpty();
     }
 };
+
+template <typename T>
+struct Node_DLL {
+    T data;
+    Node_DLL<T> *next;
+    Node_DLL<T> *prev;
+
+    Node_DLL(T val) : data(val), next(nullptr) {}
+    void display() const{
+        cout << "Node: " << data << endl;
+    }
+};
+
