@@ -17,6 +17,8 @@ class SLL {
     Node *tail;
 
     public:
+    SLL() : head(nullptr), tail(nullptr) {}
+
     SLL(int data) {
         Node *newNode = new Node(data);
         head = newNode;
@@ -29,17 +31,29 @@ class SLL {
 
     void insertStart(int data) {
         Node *newNode = new Node(data);
+        if (head == nullptr) {
+            head = newNode;
+            tail = newNode;
+            return;
+        }
         newNode->next = head;
         head = newNode;
     }
 
     void insertEnd(int data) {
         Node *newNode = new Node(data);
+        if (head == nullptr) {
+            head = newNode;
+            tail = newNode;
+            return;
+        }
         tail->next = newNode;
         tail = newNode;
     }
 
     void deleteStart() {
+        if (head == nullptr) return;
+
         if (head == tail) {
             delete head;
             head = nullptr;
@@ -53,6 +67,8 @@ class SLL {
     }
 
     void deleteEnd() {
+        if (head == nullptr) return;
+
         if (head == tail) {
             delete head;
             head = nullptr;
@@ -89,3 +105,4 @@ class SLL {
         }
     }
 };
+
