@@ -1,26 +1,28 @@
 #include <iostream>
 using namespace std;
 
+template <typename T>
 struct Node {
-    int data;
-    Node *next;
+    T data;
+    Node<T> *next;
 
-    Node(int val) : data(val), next(nullptr) {}
-    void display() {
+    Node(T val) : data(val), next(nullptr) {}
+    void display() const{
         cout << "Node: " << data << endl;
     }
 };
 
+template <typename T>
 class SLL {
     private: 
-    Node *head;
-    Node *tail;
+    Node<T> *head;
+    Node<T> *tail;
 
     public:
     SLL() : head(nullptr), tail(nullptr) {}
 
-    SLL(int data) {
-        Node *newNode = new Node(data);
+    SLL(T data) {
+        Node<T> *newNode = new Node<T>(data);
         head = newNode;
         tail = newNode;
     }
@@ -29,8 +31,8 @@ class SLL {
         clear();
     }
 
-    void insertStart(int data) {
-        Node *newNode = new Node(data);
+    void insertStart(T data) {
+        Node<T> *newNode = new Node<T>(data);
         if (head == nullptr) {
             head = newNode;
             tail = newNode;
@@ -40,8 +42,8 @@ class SLL {
         head = newNode;
     }
 
-    void insertEnd(int data) {
-        Node *newNode = new Node(data);
+    void insertEnd(T data) {
+        Node<T> *newNode = new Node<T>(data);
         if (head == nullptr) {
             head = newNode;
             tail = newNode;
@@ -61,7 +63,7 @@ class SLL {
             return;
         }
 
-        Node *temp = head;
+        Node<T> *temp = head;
         head = head->next;
         delete temp;
     }
@@ -76,7 +78,7 @@ class SLL {
             return;
         }
 
-        Node *temp = head;
+        Node<T> *temp = head;
         while (temp->next != tail) {
             temp = temp->next;
         }
@@ -92,13 +94,13 @@ class SLL {
         }
     }
 
-    void display() const {
+    void display() const{
         if (head == nullptr) {
             std::cout << "Empty List\n";
             return;
         }
 
-        Node *temp = head;
+        Node<T> *temp = head;
         while (temp != nullptr) {
             temp->display();
             temp = temp->next;
@@ -106,3 +108,21 @@ class SLL {
     }
 };
 
+template<typename T>
+class Queue {
+    private:
+    SLL<T> list;
+
+    public:
+    void enqueue(T data){
+        list.insertEnd(data);
+    }
+
+    void dequeue(){
+        list.deleteStart();
+    }  
+
+    void display() const{
+        list.display();
+    }
+};
