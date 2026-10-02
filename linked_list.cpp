@@ -38,8 +38,8 @@ class SLL {
     void deleteStart() {
         if (head == tail) {
             delete head;
-            head == nullptr;
-            tail == nullptr;
+            head = nullptr;
+            tail = nullptr;
             return;
         }
 
