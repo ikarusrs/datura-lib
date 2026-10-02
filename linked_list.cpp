@@ -53,7 +53,7 @@ class SLL {
         if (head == tail) {
            delete head;
            head = nullptr;
-           tail = nullptr; 
+           tail = nullptr;
            return;
         }
 
@@ -86,3 +86,4 @@ class SLL {
         }
     }
 };
+// yo
