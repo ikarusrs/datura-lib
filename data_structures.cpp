@@ -106,6 +106,15 @@ class SLL {
             temp = temp->next;
         }
     }
+
+    T* front() {
+        if (head == nullptr) return nullptr;
+        return &head->data;
+    }
+
+    bool isEmpty() const {
+        return head == nullptr;
+    }
 };
 
 template<typename T>
@@ -124,5 +133,13 @@ class Queue {
 
     void display() const{
         list.display();
+    }
+
+    T* front() {
+        return list.front();
+    }
+
+    bool isEmpty() const {
+        return list.isEmpty();
     }
 };
