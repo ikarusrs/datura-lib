@@ -2,13 +2,12 @@
 using namespace std;
 
 struct Node {
-    static inline int counter = 0; 
     int data;
     Node *next;
 
-    Node(int val) : data(val), next(nullptr) {counter++;}
+    Node(int val) : data(val), next(nullptr) {}
     void display() {
-        cout << "Node " << counter << ": " << data << endl;
+        cout << "Node: " << data << endl;
     }
 };
 
@@ -36,5 +35,53 @@ class SLL {
         tail = newNode;
     }
 
+    void deleteStart() {
+        if (head == tail) {
+            delete head;
+            head == nullptr;
+            tail == nullptr;
+            return;
+        }
 
+        Node *temp = head;
+        head = head->next;
+        delete temp;
+    }
+
+    void deleteEnd() {
+        if (head == tail) {
+            delete head;
+            head = nullptr;
+            tail = nullptr;
+            return;
+        }
+
+        Node *temp = head;
+        while (temp->next != tail) {
+            temp = temp->next;
+        }
+
+        delete tail;
+        tail = temp;
+        tail->next = nullptr;
+    }
+
+    void clear() {
+        while (head != nullptr) {
+            deleteStart();
+        }
+    }
+
+    void display() const {
+        if (head == nullptr) {
+            std::cout << "Empty List\n";
+            return;
+        }
+
+        Node *temp = head;
+        while (temp != nullptr) {
+            temp->display();
+            temp = temp->next;
+        }
+    }
 };
