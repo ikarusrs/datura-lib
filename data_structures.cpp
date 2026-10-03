@@ -165,8 +165,12 @@ class Stack {
         }
     }
 
-    T* top() {
+    T* peek() {
         return list.front();
+    }
+
+    bool isEmpty() const {
+        return list.isEmpty();
     }
 };
 
