@@ -168,5 +168,5 @@ class Stack {
     T* top() {
         return list.front();
     }
-
 };
+
