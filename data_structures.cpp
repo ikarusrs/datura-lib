@@ -145,14 +145,28 @@ class Queue {
 };
 
 template <typename T>
-struct Node_DLL {
-    T data;
-    Node_DLL<T> *next;
-    Node_DLL<T> *prev;
+class Stack {
+    private: 
+    SLL<T> list;
 
-    Node_DLL(T val) : data(val), next(nullptr) {}
-    void display() const{
-        cout << "Node: " << data << endl;
+    public:
+    void push(T data){
+        list.insertStart(data);
     }
-};
 
+    void pop(int i = 1) {
+        while (i > 0 && !list.isEmpty()) {
+            cout << *(list.front());
+            list.deleteStart();
+            i--;
+        }
+        if (i > 0) {
+            cout << "list is empty!";
+        }
+    }
+
+    T* top() {
+        return list.front();
+    }
+
+};
